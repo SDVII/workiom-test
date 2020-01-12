@@ -2,8 +2,9 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { StoreModule } from "@ngrx/store";
-import { reducers } from './reducers';
+import { HttpClientModule } from '@angular/common/http';
 
+import { reducers } from './reducers';
 import { AppComponent } from "./app.component";
 import { GridComponent } from "./grid/grid.component";
 import { CardComponent } from "./card/card.component";
@@ -19,7 +20,8 @@ import { NgxYoutubePlayerModule } from "ngx-youtube-player";
     BrowserAnimationsModule,
     FontAwesomeModule,
     NgxYoutubePlayerModule.forRoot(),
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

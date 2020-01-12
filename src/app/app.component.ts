@@ -1,8 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import { AppState, getSelectedVid } from "src/app/reducers";
 import { Video } from "src/app/reducers/video/video.model";
+import { YoutubeService } from "src/app/services/youtube.service";
 
 @Component({
   selector: "app-root",
@@ -14,7 +15,10 @@ export class AppComponent {
   videos: Video[];
   selectedVideo;
 
-  constructor(private store: Store<AppState>) {
+  constructor(
+    private store: Store<AppState>,
+    private yotubeService: YoutubeService
+  ) {
     this.videos = [
       {
         id: "PRQCAL_RMVo",
@@ -50,6 +54,17 @@ export class AppComponent {
 
     store.select(getSelectedVid).subscribe(video => {
       this.selectedVideo = video;
+    });
+  }
+
+  ngOnInit() {
+    //UCXuqSBlHAE6Xw-yeJA0Tunw
+    console.log(this.yotubeService);
+
+    this.yotubeService.getUploadsId("UCXuqSBlHAE6Xw-yeJA0Tunw").then(result => {
+      this.yotubeService.getUploads(result).then(results => {
+        console.log(results);
+      });
     });
   }
 }
