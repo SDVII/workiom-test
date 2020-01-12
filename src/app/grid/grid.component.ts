@@ -73,6 +73,8 @@ export class GridComponent {
         this.grid = new muuri(".grid", this.options);
         this.grid.on("dragEnd", this.dragEnd);
         this.grid.on("dragStart", this.dragStart);
+        this.grid.refreshItems();
+        this.grid.layout(true);
         window.scrollTo(0, document.body.scrollHeight);
         this.spinner.hide();
       }, 200);
