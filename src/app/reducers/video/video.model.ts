@@ -7,4 +7,5 @@ export interface Video {
   thumb: string;
   title: string;
   comment: string;
+  position?:number;
 }

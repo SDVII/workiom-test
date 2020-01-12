@@ -1,4 +1,21 @@
 <div id="main">
-  <app-grid [videos]="videos" id="video-grid"></app-grid>
-  <app-popup *ngIf="selectedVideo.video.id.length>0" [video]="selectedVideo.video" id="popup"></app-popup>
+  <section id="header">
+    <h1>YouTube Video Organizer</h1>
+    <div class="id-input">
+
+      <input [class]="isIncorrectId?'danger':''" [(ngModel)]="channelId" placeholder="Enter Channel ID..." type="text">
+      <button (click)="fetchYoutubeVids(8, [])">Fetch Videos</button>
+    </div>
+  </section>
+  <section id="content">
+    <app-grid *ngIf="videos.length>0" [videos]="videos" id="video-grid"></app-grid>
+    <app-popup *ngIf="selectedVideo.video.id.length>0" [video]="selectedVideo.video">
+    </app-popup>
+    <div *ngIf="videos.length>0 && channelId.trim().length>0" class="load">
+      <span (click)="fetchYoutubeVids(8, [])">Load More</span>
+    </div>
+  </section>
+  <ngx-spinner bdOpacity=0.9 bdColor="#333" size="medium" color="#fff" type="ball-pulse" [fullScreen]="true">
+    <p style="color: white"> Fetching new videos... </p>
+  </ngx-spinner>
 </div>

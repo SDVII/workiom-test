@@ -1,11 +1,25 @@
-<div #popup class="content">
-  <youtube-player id="player" [width]="videoWidth" [height]="videoHeight" [videoId]="video.id">
-  </youtube-player>
-  <div class="title">
-    <span >{{video.title}}</span>
-    <fa-icon (click)="openLink()" class="link" [icon]='faExternalLinkAlt'></fa-icon>
+<div (click)="close()" id="popup">
+  <div (click)="$event.stopPropagation()" class="content">
+    <youtube-player id="player" [width]="videoWidth" [height]="videoHeight" [videoId]="video.id">
+    </youtube-player>
+    <div class="title">
+      <span>{{video.title}}</span>
+      <fa-icon (click)="openLink()" class="link" [icon]='faExternalLinkAlt'></fa-icon>
+    </div>
+    <div class="comment-wrapper">
+      <span class="subtitle">Comment:</span>
+      <div class="input-wrapper">
+        <div *ngIf="!isInputToggled" class="read">
+          <span class="comment">
+            {{video.comment}}
+          </span>
+          <fa-icon (click)="toggle()" class="pen" [icon]="faPen"></fa-icon>
+        </div>
+        <div *ngIf="isInputToggled" class="write" #input>
+          <input [(ngModel)]="comment" (blur)="update()" #ctrl="ngModel" type="text">
+        </div>
+      </div>
+    </div>
   </div>
-
+  <fa-icon (click)="close()" class="cross" [icon]='faTimes'></fa-icon>
 </div>
-
-<fa-icon (click)="close()" class="cross" [icon]='faTimes'></fa-icon>

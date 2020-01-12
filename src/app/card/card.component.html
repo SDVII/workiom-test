@@ -1,7 +1,8 @@
 <div class="card">
   <div class="header">
     <fa-icon class="icon arrows" [icon]="faArrowsAlt"></fa-icon>
-    <fa-icon [class]="video.comment.trim().length === 0?'icon comment in-active':'icon comment'" [icon]="faComment">
+    <fa-icon (click)="setVideo(video)"
+      [class]="video.comment.trim().length === 0?'icon comment in-active':'icon comment'" [icon]="faComment">
     </fa-icon>
   </div>
   <div (mouseenter)="isHovering=true" (mouseleave)="isHovering=false" class="thumbnail">

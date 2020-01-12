@@ -3,12 +3,16 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { StoreModule } from "@ngrx/store";
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'
 
 import { reducers } from './reducers';
 import { AppComponent } from "./app.component";
 import { GridComponent } from "./grid/grid.component";
 import { CardComponent } from "./card/card.component";
 import { PopupComponent } from "./popup/popup.component";
+import { CoreModule } from './core/core.module';
+import { VideosService } from "./services/videos.service";
+import { NgxSpinnerModule } from "ngx-spinner";
 
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { NgxYoutubePlayerModule } from "ngx-youtube-player";
@@ -21,9 +25,12 @@ import { NgxYoutubePlayerModule } from "ngx-youtube-player";
     FontAwesomeModule,
     NgxYoutubePlayerModule.forRoot(),
     StoreModule.forRoot(reducers),
-    HttpClientModule
+    HttpClientModule,
+    CoreModule,
+    FormsModule,
+    NgxSpinnerModule
   ],
-  providers: [],
+  providers: [VideosService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

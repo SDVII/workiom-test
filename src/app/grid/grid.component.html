@@ -1,5 +1,5 @@
 <div class="grid hidden">
-  <div *ngFor="let video of videos; trackBy:identify" class="item">
+  <div *ngFor="let video of _videos; trackBy:identify" [attr.data-id]="video.id" class="item">
     <div class="item-content">
       <app-card [video]="video" [attr.id]="video.id" class="video-card"></app-card>
     </div>

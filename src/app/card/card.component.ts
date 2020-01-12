@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
+import { Component, Input, EventEmitter, Output } from "@angular/core";
 import { trigger, style, animate, transition } from "@angular/animations";
 import { Store } from "@ngrx/store";
 
@@ -29,7 +29,7 @@ import { Video } from "src/app/reducers/video/video.model";
     ])
   ]
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
   @Input() video: Video;
   @Output() videoSelected = new EventEmitter<Video>();
 
@@ -42,8 +42,11 @@ export class CardComponent implements OnInit {
     this.isHovering = false;
   }
 
-  ngOnInit() {}
-
+  /**
+   * @description Sets a video to be displayed in a popup
+   * @param {Video} val Selected Video
+   * @memberof CardComponent
+   */
   setVideo(val: Video) {
     this.store.dispatch(new fromVideo.SetSelectedVideo({ video: val }));
   }
