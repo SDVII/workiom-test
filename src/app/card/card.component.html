@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="header">
+    <fa-icon class="icon arrows" [icon]="faArrowsAlt"></fa-icon>
+    <fa-icon [class]="video.comment.trim().length === 0?'icon comment in-active':'icon comment'" [icon]="faComment">
+    </fa-icon>
+  </div>
+  <div (mouseenter)="isHovering=true" (mouseleave)="isHovering=false" class="thumbnail">
+    <div (click)="setVideo(video)" *ngIf="isHovering" @fadeInOut class="backdrop">
+      <fa-icon class="icon" [icon]="faPlayCircle"></fa-icon>
+    </div>
+    <img [attr.src]="video.thumb" alt="">
+  </div>
+  <span class="title">
+    {{ video.title }}
+  </span>
+</div>

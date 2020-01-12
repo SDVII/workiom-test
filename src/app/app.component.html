@@ -1,3 +1,4 @@
 <div id="main">
-  <app-grid id="video-grid"></app-grid>
+  <app-grid [videos]="videos" id="video-grid"></app-grid>
+  <app-popup *ngIf="selectedVideo.video.id.length>0" [video]="selectedVideo.video" id="popup"></app-popup>
 </div>

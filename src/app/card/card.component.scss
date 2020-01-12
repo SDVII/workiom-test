@@ -1,0 +1,69 @@
+$icon-color: rgb(48, 48, 48);
+
+.card {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: rgba($color: #000000, $alpha: 0.25) 0px 2px 2px 2px;
+  background-color: white;
+  padding: 0.75rem 0;
+
+  .header {
+    padding: 0 0.75rem 0.75rem;
+    display: flex;
+    justify-content: space-between;
+
+    .icon {
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: $icon-color;
+
+      &.comment {
+        color: rgb(255, 238, 0);
+        filter: drop-shadow(0px 1px 1px black);
+        transition: color 0.3s;
+
+        &.in-active {
+          color: rgba($color: $icon-color, $alpha: 0.1);
+
+          &:hover{
+            color: $icon-color;
+          }
+        }
+      }
+    }
+  }
+
+  .thumbnail {
+    display: flex;
+    width: 100%;
+    position: relative;
+
+    .backdrop {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #000000, $alpha: 0.75);
+      cursor: pointer;
+
+      .icon {
+        color: white;
+        font-size: 5rem;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .title {
+    display: flex;
+    padding: 0.75rem;
+    font-size: 1.25rem;
+  }
+}

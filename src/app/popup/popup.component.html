@@ -1,0 +1,11 @@
+<div #popup class="content">
+  <youtube-player id="player" [width]="videoWidth" [height]="videoHeight" [videoId]="video.id">
+  </youtube-player>
+  <div class="title">
+    <span >{{video.title}}</span>
+    <fa-icon (click)="openLink()" class="link" [icon]='faExternalLinkAlt'></fa-icon>
+  </div>
+
+</div>
+
+<fa-icon (click)="close()" class="cross" [icon]='faTimes'></fa-icon>
