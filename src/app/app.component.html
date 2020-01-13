@@ -9,7 +9,7 @@
   </section>
   <section id="content">
     <app-grid *ngIf="videos.length>0" [videos]="videos" id="video-grid"></app-grid>
-    <app-popup *ngIf="selectedVideo.video.id.length>0" [video]="selectedVideo.video">
+    <app-popup *ngIf="selectedVideo && selectedVideo.video.id.length>0" [video]="selectedVideo.video">
     </app-popup>
     <div *ngIf="videos.length>0 && channelId.trim().length>0" class="load">
       <span (click)="fetchYoutubeVids(8, [])">Load More</span>

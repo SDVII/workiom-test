@@ -1,6 +1,6 @@
 <div (click)="close()" id="popup">
   <div (click)="$event.stopPropagation()" class="content">
-    <youtube-player id="player" [width]="videoWidth" [height]="videoHeight" [videoId]="video.id">
+    <youtube-player id="player" [width]="400" [height]="200" [videoId]="video.id">
     </youtube-player>
     <div class="title">
       <span>{{video.title}}</span>
